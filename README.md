@@ -1,66 +1,65 @@
-# 🚗 Automotive Production Workflow (ERP Panthera + EDI Integration)
+# 🚗 Automotive EDI-Based Order-to-Invoice Process (BPMN 2.0)
 
-## 📋 Overview
-This BPMN diagram represents a **complete production and delivery workflow** in an **automotive manufacturing company** using **ERP Panthera** with **EDI integration**.  
-The process covers the entire cycle — from receiving customer orders via EDI to generating invoices and transmitting EDI INVOICE messages.
+## 📖 Overview
+This project presents a **BPMN 2.0 process model** illustrating the *Order-to-Invoice* flow in the **automotive industry**.  
+It focuses on **EDI message exchange** between a customer and an ERP system, covering the entire business process —  
+from **forecasting and planning** through **production**, **shipment**, and **invoicing**.
 
----
-
-## 🧱 Main Steps
-
-1. **📨 Order Reception (EDI)**
-   - Customer sends an **EDI message (ORDERS)**.
-   - ERP Panthera imports and validates the EDI file.
-   - If the order is correct → proceed to planning.  
-     If validation fails → send error report to customer.
-
-2. **🗓️ Production Planning**
-   - The order is automatically added to the **production schedule**.
-   - Planner verifies material availability (BOM check).
-   - A **Production Order (Executive Order)** is generated.
-
-3. **🏭 Production Execution**
-   - Operators execute the order according to production plan.
-   - Progress is reported in real time to ERP Panthera.
-   - Quality control (QC) tests are performed.
-
-4. **🧾 Production Documentation**
-   - Upon completion, the system generates a **Production Document** and **Quality Test Report**.
-   - Documents are stored in ERP and linked to the production batch.
-
-5. **📦 Shipment**
-   - Logistics prepares a **Delivery Note (DDT)**.
-   - Shipment is dispatched and confirmed in ERP.
-   - The system may send an **EDI DESADV (Dispatch Advice)** message to the customer.
-
-6. **💰 Invoicing**
-   - Based on the DDT, ERP automatically issues an **Invoice**.
-   - EDI **INVOICE** message is transmitted to the customer’s system.
-   - Process ends when the confirmation is received.
+Although the workflow could be implemented in systems such as **ERP Panthera**,  
+the main goal of this model is to visualize the **business process**, not system architecture.
 
 ---
 
-## 🧠 Tools
-- Modeled in [ADONIS BPM](https://www.boc-group.com/adonis/)
-- Exported as BPMN 2.0 XML and PNG
+## 🧭 Process Flow Summary
+1. **Forecast (DELFOR)** – Customer sends forecast data via EDI, imported automatically into ERP for planning.  
+2. **Delivery Schedule (DELJIT)** – Updates short-term delivery expectations.  
+3. **Customer Order (ORDERS)** – Formal customer order triggers production planning.  
+4. **Availability Check** – ERP verifies component availability.  
+   - If components are missing → replenishment and customer notification.  
+   - If available → proceed to production order creation.  
+5. **Order Confirmation (ORDRSP)** – ERP sends order confirmation to the customer.  
+6. **Production Process** – Manufacturing, quality control, and packaging.  
+7. **Shipment (DESADV)** – Dispatch advice sent via EDI after shipping.  
+8. **Invoicing (INVOIC)** – Sales invoice generated and sent to the customer.  
 
 ---
 
-## 💡 Business Context
-This workflow is typical for **Tier 1 suppliers** in the automotive industry.  
-It ensures **traceability**, **data consistency**, and **automated EDI communication** between systems — from production planning to financial integration.
+## 💬 EDI Messages Involved
+| Direction | EDI Message | Description |
+|------------|--------------|--------------|
+| Customer → ERP | DELFOR | Forecast schedule |
+| Customer → ERP | DELJIT | Delivery schedule (call-off) |
+| Customer → ERP | ORDERS | Sales order |
+| ERP → Customer | ORDRSP | Order confirmation |
+| ERP → Customer | DESADV | Dispatch advice |
+| ERP → Customer | INVOIC | Invoice |
 
 ---
 
-## 🏷️ Keywords
-`BPMN` · `ADONIS` · `ERP Panthera` · `Automotive` · `EDI` · `DESADV` · `INVOICE` · `Production` · `Quality Control`
+## 🧰 Tools & Technology
+- Modeled in **ADONIS BPM**
+- Exported to **BPMN 2.0 (XML + PNG)**
+- Viewable in **Bizagi**, **Camunda Modeler**, or **Signavio**
 
 ---
 
-## 🖼️ Diagram Preview
-![Automotive Production Workflow](your-diagram-file.png)
-*(my diagram)*
+## 🖼 Diagram Preview
+![BPMN Automotive Order-to-Invoice Process](diagrams/automotive-production-workflow.png)
 
 ---
 
-### 📁 Repository Structure
+## 🧩 Context
+The model represents a **typical automotive ERP process**, where customer EDI messages drive production and logistics.  
+While the diagram could reflect processes executed in systems like **ERP Panthera**, it is **system-agnostic**,  
+focusing on the universal business logic of EDI-based manufacturing and order handling.
+
+---
+
+## 📜 License
+Released under the **MIT License** — free for learning and documentation purposes.
+
+---
+
+### 👩‍💻 Author
+**Sandra Rog**  
+Business Process & ERP Analyst | BPMN | EDI | Automotive ERP Systems
