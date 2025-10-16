@@ -44,7 +44,8 @@ the main goal of this model is to visualize the **business process**, not system
 ---
 
 ## 🖼 Diagram Preview
-![BPMN Automotive Order-to-Invoice Process](diagrams/automotive-production-workflow.png)
+[BPMN Diagram](https://github.com/SandraRog/bpmn-processes-portfolio/blob/main/Automotive%20production%20company%20(2025-10-16_13-09-31).png)
+
 
 ---
 
